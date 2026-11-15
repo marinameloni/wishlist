@@ -1,0 +1,16 @@
+{
+  "name": "wishlist",
+  "version": "1.0.0",
+  "description": "Application web de listes de souhaits auto-hébergée",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=22.13"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

@@ -1,0 +1,27 @@
+# Stack Portainer : à coller dans Stacks → Add stack → Web editor
+# (l'image « wishlist:latest » doit d'abord être construite via Images → Build a new image → Upload)
+services:
+  wishlist:
+    image: wishlist:latest
+    container_name: wishlist
+    restart: unless-stopped
+    environment:
+      TZ: Europe/Paris
+    volumes:
+      - wishlist-data:/data
+    # Accès direct pour le premier test : http://IP-DU-VPS:3080
+    # (port de gauche = port sur le VPS, à changer s'il est déjà pris ; celui de droite reste 3000)
+    # Une fois le reverse proxy branché, vous pouvez supprimer ces 2 lignes.
+    ports:
+      - "3080:3000"
+    # Décommentez si votre reverse proxy (Nginx Proxy Manager, Traefik, Caddy…) tourne dans Docker :
+    # remplacez « proxy » par le nom de son réseau (visible dans Portainer → Networks).
+    # networks:
+    #   - proxy
+
+volumes:
+  wishlist-data:
+
+# networks:
+#   proxy:
+#     external: true

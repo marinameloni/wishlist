@@ -1,0 +1,15 @@
+services:
+  wishlist:
+    build: .
+    image: wishlist:latest
+    container_name: wishlist
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      TZ: Europe/Paris
+    volumes:
+      - wishlist-data:/data
+
+volumes:
+  wishlist-data:
